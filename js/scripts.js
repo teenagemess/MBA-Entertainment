@@ -43,17 +43,58 @@ window.addEventListener('DOMContentLoaded', event => {
     const responsiveNavItems = [].slice.call(
         document.querySelectorAll('#navbarResponsive .nav-link')
     );
-    responsiveNavItems.map(function (responsiveNavItem) {
-        responsiveNavItem.addEventListener('click', () => {
-            if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                navbarToggler.click();
-            }
-        });
-    });
+    
+
 
     // Activate SimpleLightbox plugin for portfolio items
     new SimpleLightbox({
         elements: '#portfolio a.portfolio-box'
     });
 
+        // Mendapatkan elemen tombol YouTube
+
 });
+
+const youtubeButton = document.getElementById('youtubeButton');
+
+// Mengarahkan pengguna ke YouTube saat tombol ditekan
+youtubeButton.addEventListener('click', function () {
+    window.location.href = 'https://www.youtube.com/watch?v=2TjcPpasesA';
+});
+
+function showTime() {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+
+    // Format waktu menjadi 2 digit angka
+    const formattedTime = `${String(hours).padStart(2, '0')} : ${String(minutes).padStart(2, '0')} : ${String(seconds).padStart(2, '0')}`;
+
+    // Memperbarui elemen dengan ID "clock" dengan waktu terbaru
+    document.getElementById('clock').textContent = formattedTime;
+}
+
+// Memanggil fungsi showTime setiap detik
+setInterval(showTime, 1000);
+
+    // Ambil elemen header
+    const header = document.querySelector('.masthead');
+
+    // Buat elemen video
+    const video = document.createElement('video');
+    video.classList.add('video-background');
+    video.autoplay = true;
+    video.muted = true;
+    video.loop = true;
+
+    // Buat sumber video
+    const source = document.createElement('source');
+    source.src = 'media/amen.mp4'; // Ganti dengan URL video Anda
+    source.type = 'video/mp4';
+
+    // Sisipkan sumber video ke dalam elemen video
+    video.appendChild(source);
+
+    // Sisipkan elemen video ke dalam header
+    header.insertBefore(video, header.firstChild);

@@ -45,22 +45,18 @@
     </nav>
     <!-- Masthead-->
     <header class="masthead">
-        <video class="video-background" autoplay muted loop>
-            <source src="media/amen.mp4" type="video/mp4">
-        </video>
-        <div class="overlay"></div>
         <div class="container px-4 px-lg-5 h-100">
             <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-start text-start">
                 <div class="col-lg-8 align-self-end">
                     <h1 class="text-white font-weight-bold" style="font-family: 'Cinzel', serif;">METAL</h1>
-                    <h1 class="text-white font-weight-bold" style="font-family: 'Cinzel', serif;"">ENTERTAINMENT GROUP</h1>
+                    <h1 class="text-white font-weight-bold" style="font-family: 'Cinzel', serif;">ENTERTAINMENT GROUP
+                    </h1>
                 </div>
-                <div class=" col-lg-8 align-self-baseline">
-                        <p class="text-white-75 mb-5" style="font-family: 'Cinzel', serif;"">Indonesian metal entertainment agencies through Asia-wide distribution channels
-                            and global partners</p>
-                        <a class=" btn btn-xl text-white" href="#about"
-                            style="background-color: #860713; font-family: 'Cinzel', serif;">Find Out
-                            More</a>
+                <div class="col-lg-8 align-self-baseline">
+                    <p class="text-white-75 mb-5" style="font-family: 'Cinzel', serif;">Indonesian metal entertainment
+                        agencies through Asia-wide distribution channels and global partners</p>
+                    <a class="btn btn-xl text-white" href="#about"
+                        style="background-color: #860713; font-family: 'Cinzel', serif;">Find Out More</a>
                 </div>
             </div>
         </div>
@@ -194,8 +190,8 @@
     <section class="page-section bg-dark text-white" style="background-image: url(assets/img/bgamen2.jpg);">
         <div class="container px-4 px-lg-5 text-center">
             <h2 class="mb-4">Listen to "AmEN!" new single of BMTH</h2>
-            <a class="btn btn-light btn-xl" href="https://www.youtube.com/watch?v=2TjcPpasesA"
-                style="font-family: 'Cinzel', serif;">Listen!</a>
+            <button class="btn btn-light btn-xl" id="youtubeButton" href="#"
+                style="font-family: 'Cinzel', serif;">Listen!</button>
         </div>
     </section>
     <!-- Contact-->
@@ -281,13 +277,42 @@
             </div>
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-4 text-center mb-5 mb-lg-0">
-                    <i class="bi-phone fs-2 mb-3 text-muted"></i>
-                    <div>+1 (555) 123-4567</div>
+                    <i class="bi-clock fs-2 mb-3 text-muted"></i>
+                    <div>
+                        <p id="clock"></p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Footer-->
+
+    <script>
+        // Mendapatkan elemen tombol "Submit"
+        const submitButton = document.getElementById('submitButton');
+
+        // Mengaktifkan validasi form saat tombol "Submit" ditekan
+        submitButton.addEventListener('click', function (event) {
+            const form = document.getElementById('contactForm');
+            if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+        });
+
+        // Mengaktifkan animasi smooth scrolling pada semua tautan dengan class "nav-link"
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+
     <footer class="bg-light py-5">
         <div class="container px-4 px-lg-5">
             <div class="small text-center text-muted">Copyright &copy; 2023 - Company Name</div>
